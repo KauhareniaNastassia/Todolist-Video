@@ -111,3 +111,11 @@ export const fetchTodolistsThunkCreator = () => {
                 dispatch(setTodolistAC(res.data)))
     }
 }
+
+export const removeTodolistThunkCreator = (todolistId: string) => {
+    return (dispatch: Dispatch) => {
+        todolistsAPI.deleteTodolist(todolistId)
+            .then((res) =>
+                dispatch(removeTodolistAC(todolistId)))
+    }
+}
